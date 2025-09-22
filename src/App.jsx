@@ -1,20 +1,18 @@
-import { useState } from "react";
-import { Button } from "./components/ui/button";
+
+import { useUser } from "@clerk/clerk-react";
 import "./App.css";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+
+import { Navigate, Outlet } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const {user, isLoaded,isSignedIn}= useUser();
+if(!isSignedIn&& isLoaded){
+  return <Navigate to='/auth/sign-in'/>
+}
 
   return (
     <div>
-      <Avatar>
-        <AvatarImage src="https://github.com/shadcn.png" />
-        <AvatarFallback>CN</AvatarFallback>
-      </Avatar>
-      <div className="flex min-h-svh flex-col items-center justify-center">
-        <Button>Click me</Button>
-      </div>
+      <Outlet/>
     </div>
   );
 }
