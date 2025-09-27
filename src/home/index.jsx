@@ -1,12 +1,11 @@
-import { UserButton } from '@clerk/clerk-react'
+import Header from '@/components/custom/Header'
 import React from 'react'
 
 const Home = () => {
   return (
     <div>
-      <UserButton/>
-      home
-
+      <Header/>
+      <div className='flex justify-center'>Welcome to AI resume builder</div>
     </div>
   )
 }
