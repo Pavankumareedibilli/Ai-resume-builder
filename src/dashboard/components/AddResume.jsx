@@ -1,6 +1,7 @@
-import { Ghost, PlusSquare } from "lucide-react";
+import { Ghost, Loader2, PlusSquare } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import React from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -10,9 +11,40 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { v4 as uuidv4 } from "uuid";
+import GlobalApi from "./../../../service/GlobalApi";
+import { useUser } from "@clerk/clerk-react";
 
 const AddResume = () => {
-  const [openDialog, setOpenDialog] = React.useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
+  const [resumeTitle, setResumeTitle] = useState();
+  const { user } = useUser();
+  const [loading, setLoading] = useState(false);
+
+  const onCreate = () => {
+    setLoading(true);
+    const uuid = uuidv4();
+    const data = {
+      data: {
+        title: resumeTitle,
+        resumeid: uuid,
+        userEmail: user?.primaryEmailAddress?.emailAddress,
+        userName: user?.fullName,
+      },
+    };
+    GlobalApi.CreateNewResume(data).then(
+      (resp) => {
+        console.log(resp);
+        if (resp) {
+          setLoading(false);
+        }
+      },
+      (error) => {
+        setLoading(false);
+      }
+    );
+  };
+
   return (
     <div>
       <div
@@ -29,11 +61,19 @@ const AddResume = () => {
             <DialogTitle>Create New Resume!</DialogTitle>
             <DialogDescription>
               <p>Enter Name of your Resume</p>
-              <Input className="my-2" placeholder="Ex. FullStack Resume" />
+              <Input
+                className="my-2"
+                placeholder="Ex. FullStack Resume"
+                onChange={(e) => setResumeTitle(e.target.value)}
+              />
             </DialogDescription>
             <div className="flex justify-end gap-5">
-              <Button onClick={()=>setOpenDialog(false)} variant={Ghost}>Cancel</Button>
-              <Button>Create</Button>
+              <Button onClick={() => setOpenDialog(false)} variant={Ghost}>
+                Cancel
+              </Button>
+              <Button disabled={!resumeTitle || loading} onClick={() => onCreate()}>
+               {loading?<Loader2 className="animate-spin"/>:'Create'}
+              </Button>
             </div>
           </DialogHeader>
         </DialogContent>
