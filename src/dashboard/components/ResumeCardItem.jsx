@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router'
 function ResumeCardItem ({resume})  {
   return (
-    <Link to={`/dashboard/resume/${resume.resumeid}/edit`} >
+    <Link to={`/dashboard/resume/${resume.documentId}/edit`} >
         <div className='p-14 py-24 border items-center flex justify-center 
         bg-secondary border-dashed border-gray-400 rounded-lg cursor-pointer
          hover:scale-105 duration-200 transition h-[280px] hover:shadow-md'>
