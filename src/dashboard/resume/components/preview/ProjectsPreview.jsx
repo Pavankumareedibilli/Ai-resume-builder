@@ -29,7 +29,8 @@ function ProjectsPreview({ resumeInfo }) {
           <h2 className="text-xs flex justify-between">
             {projects?.techStack}
           </h2>
-          <p className="text-xs my-2">{projects.workSummery}</p>
+          {/* <p className="text-xs my-2">{projects.workSummery}</p> */}
+          <div  className=" text-xs my-2" dangerouslySetInnerHTML={{__html:projects?.workSummery}}/>
         </div>
       ))}
     </div>

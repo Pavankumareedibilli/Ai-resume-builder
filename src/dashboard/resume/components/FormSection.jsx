@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import PersonalDetails from "./forms/PersonalDetails";
 import { Button } from "@/components/ui/button";
-import { ArrowLeftFromLineIcon, ArrowRight, Flag, LayoutGrid } from "lucide-react";
+import {
+  ArrowLeftFromLineIcon,
+  ArrowRight,
+  Flag,
+  LayoutGrid,
+} from "lucide-react";
 import Summery from "./forms/Summery";
+import Projects from "./forms/Projects";
 
 function FormSection() {
   const [activeFormIndex, setActiveFormIndex] = useState(1);
-  const [enableNext,setEnableNext]= useState(false);
+  const [enableNext, setEnableNext] = useState(false);
 
   return (
     <div>
@@ -37,9 +43,13 @@ function FormSection() {
         </div>
       </div>
       {/* personalDetails */}
-      {activeFormIndex == 1 ? <PersonalDetails  enableNext={(v)=>setEnableNext(v)}/> : activeFormIndex==2?
-      <Summery enableNext={(v)=>setEnableNext(v)} />:null}
-      
+      {activeFormIndex == 1 ? (
+        <PersonalDetails enableNext={(v) => setEnableNext(v)} />
+      ) : activeFormIndex == 2 ? (
+        <Summery enableNext={(v) => setEnableNext(v)} />
+      ) : activeFormIndex == 3 ? (
+        <Projects />
+      ) : null}
 
       {/* projects */}
 
