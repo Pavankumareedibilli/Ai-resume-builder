@@ -6,6 +6,28 @@ import { useParams } from "react-router";
 import GlobalApi from "./../../../../../service/GlobalApi";
 import { BrainCircuitIcon, LoaderCircle } from "lucide-react";
 import { toast } from "sonner";
+import { AIChatSession } from "./../../../../../service/AIModel";
+
+const prompt = `
+You must respond with VALID JSON ONLY.
+
+Return an ARRAY with exactly 3 objects for:
+- Fresher
+- Mid-level
+- Experienced
+
+Each object must have this exact structure:
+
+{
+  "experienceLevel": "Fresher | Mid-level | Experienced",
+  "summery": "4-5 line resume summary based on the job title"
+}
+
+Job Title: {jobTitle}
+
+Do NOT include any text outside the JSON array.
+`;
+
 
 function Summery({ enableNext }) {
   const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
@@ -13,6 +35,7 @@ function Summery({ enableNext }) {
   const [loading, setLoading] = useState(false);
 
   const params = useParams();
+  const [aiGeneratedSummeryList, setAiGeneratedSummeryList] = useState();
 
   useEffect(() => {
     summery &&
@@ -24,6 +47,16 @@ function Summery({ enableNext }) {
         [summery]
       );
   });
+
+  const GenerateSummeryFromAI = async () => {
+    setLoading(true);
+    const PROMPT = prompt.replace("{jobTitle}", resumeInfo?.jobTitle);
+    console.log(PROMPT);
+    const result = await AIChatSession.sendMessage(PROMPT);
+    console.log(JSON.parse(result.response.text()));
+    setAiGeneratedSummeryList(JSON.parse([result.response.text()]));
+    setLoading(false);
+  };
 
   const onSave = (e) => {
     e.preventDefault();
@@ -56,6 +89,7 @@ function Summery({ enableNext }) {
           <div className="flex justify-between items-end">
             <label> Add summery </label>
             <Button
+              onClick={() => GenerateSummeryFromAI()}
               type="button"
               size="sm"
               variant="outline"
@@ -76,6 +110,22 @@ function Summery({ enableNext }) {
             </Button>
           </div>
         </form>
+      </div>
+      <div>
+        {aiGeneratedSummeryList && (
+          <div>
+            <h2 className="font-bold text-lg">Suggestions</h2>
+
+            {aiGeneratedSummeryList.map((item, index) => {
+             return( <div>
+                <h2 className="font-bold my-1">
+                  Level : {item?.experienceLevel}
+                </h2>
+                <p>{item?.summery}</p>
+              </div>);
+            })}
+          </div>
+        )}
       </div>
     </div>
   );
