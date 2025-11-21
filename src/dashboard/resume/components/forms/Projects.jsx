@@ -3,6 +3,10 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import RichTextEditor from "../RichTextEditor";
 import { ResumeInfoContext } from "@/context/ResumeInfoContext";
+import { useParams } from "react-router";
+import { LoaderCircle } from "lucide-react";
+import GlobalApi from "./../../../../../service/GlobalApi";
+import { toast } from "sonner";
 const formField = {
   title: "",
   techStack: "",
@@ -10,8 +14,10 @@ const formField = {
 };
 
 function Projects() {
-  const [projectList, setProjectList] = useState([formField]);
 
+  const [loading,setLoading] = useState(false);
+  const [projectList, setProjectList] = useState([formField]);
+const params =useParams();
   const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
 
   const handleChange = (index, event) => {
@@ -33,7 +39,22 @@ function Projects() {
     newEntries[index][name] = e.target.value;
     setProjectList(newEntries);
   };
-
+ const onSave = () => {
+    setLoading(true);
+    const data={
+        data:{
+            projects:projectList
+        }
+    }
+    GlobalApi.UpdateResumeDetail(params.resumeId,data).then(resp=>{
+        console.log(resp);
+        setLoading(false);
+        toast('Details Updated!');
+    },(error)=>{
+        setLoading(false);
+        toast('Server Error, Please try again!');
+    })
+  };
   useEffect(() => {
     setResumeInfo({
       ...resumeInfo,
@@ -97,7 +118,9 @@ function Projects() {
               -Remove
             </Button>
           </div>
-          <Button variant="outline">Save</Button>
+           <Button disabled={loading} onClick={()=>onSave()}>
+            {loading?<LoaderCircle className="animate-spin"/>:'save'}
+          </Button>
         </div>
       </div>
     </div>

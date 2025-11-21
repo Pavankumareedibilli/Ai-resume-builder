@@ -75,6 +75,8 @@ function Summery({ enableNext }) {
       },
       (error) => {
         setLoading(false);
+        toast('Server Error, Please try again!');
+        
       }
     );
   };

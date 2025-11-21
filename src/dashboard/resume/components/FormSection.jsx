@@ -9,6 +9,8 @@ import {
 } from "lucide-react";
 import Summery from "./forms/Summery";
 import Projects from "./forms/Projects";
+import Education from "./forms/Education";
+import Skills from "./forms/Skills";
 
 function FormSection() {
   const [activeFormIndex, setActiveFormIndex] = useState(1);
@@ -49,6 +51,10 @@ function FormSection() {
         <Summery enableNext={(v) => setEnableNext(v)} />
       ) : activeFormIndex == 3 ? (
         <Projects />
+      ) : activeFormIndex == 4 ? (
+        <Education />
+      ) : activeFormIndex == 5 ? (
+        <Skills />
       ) : null}
 
       {/* projects */}
