@@ -79,6 +79,7 @@ const params =useParams();
                     name="title"
                     value={item.title}
                     onChange={(event) => handleChange(index, event)}
+                   
                   />
                 </div>
                 <div>
