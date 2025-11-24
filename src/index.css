@@ -1,7 +1,28 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@layer utilities {
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+    .print-area {
+      display: block !important;
+      margin: 0 !important;    /* remove all default spacing */
+      padding: 0 !important;
+    }
+    
+  }
+}
+
+@page{
+  size: auto;
+  margin: 0mm;
+}
+
 
 @custom-variant dark (&:is(.dark *));
+
+
 
 .rsw-ce ul {
   list-style: disc;
