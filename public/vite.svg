@@ -1,1 +1,61 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="31.88" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 257"><defs><linearGradient id="IconifyId1813088fe1fbc01fb466" x1="-.828%" x2="57.636%" y1="7.652%" y2="78.411%"><stop offset="0%" stop-color="#41D1FF"></stop><stop offset="100%" stop-color="#BD34FE"></stop></linearGradient><linearGradient id="IconifyId1813088fe1fbc01fb467" x1="43.376%" x2="50.316%" y1="2.242%" y2="89.03%"><stop offset="0%" stop-color="#FFEA83"></stop><stop offset="8.333%" stop-color="#FFDD35"></stop><stop offset="100%" stop-color="#FFA800"></stop></linearGradient></defs><path fill="url(#IconifyId1813088fe1fbc01fb466)" d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z"></path><path fill="url(#IconifyId1813088fe1fbc01fb467)" d="M185.432.063L96.44 17.501a3.268 3.268 0 0 0-2.634 3.014l-5.474 92.456a3.268 3.268 0 0 0 3.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028l72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113Z"></path></svg>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- background -->
+  <rect x="0" y="0" width="512" height="512" rx="72" fill="#F7F4FF"/>
+
+  <!-- resume card -->
+  <rect x="60" y="60" width="280" height="392" rx="28" fill="#FFFFFF" />
+
+  <!-- avatar background -->
+  <rect x="88" y="86" width="96" height="96" rx="20" fill="#3F8FFF"/>
+
+  <!-- avatar face -->
+  <circle cx="136" cy="134" r="34" fill="#FFE0C2"/>
+  <!-- hair -->
+  <path d="M110 124c4-22 20-36 40-36 18 0 30 10 34 30-6-4-14-6-24-6-10 0-18 2-24 6-6-4-16-4-26 6z"
+        fill="#1C2B4A"/>
+  <!-- eyes -->
+  <circle cx="124" cy="134" r="3.5" fill="#2C2131"/>
+  <circle cx="148" cy="134" r="3.5" fill="#2C2131"/>
+  <!-- mouth -->
+  <path d="M122 148c4 8 10 12 14 12s10-4 14-12" stroke="#E06666" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- top lines on resume -->
+  <rect x="204" y="94" width="114" height="10" rx="5" fill="#D5D8F0"/>
+  <rect x="204" y="114" width="96" height="10" rx="5" fill="#E3E5F5"/>
+  <rect x="204" y="134" width="82" height="10" rx="5" fill="#E3E5F5"/>
+
+  <!-- left text blocks -->
+  <rect x="88" y="206" width="184" height="10" rx="5" fill="#D5D8F0"/>
+  <rect x="88" y="226" width="160" height="10" rx="5" fill="#E3E5F5"/>
+  <rect x="88" y="246" width="172" height="10" rx="5" fill="#E3E5F5"/>
+  <rect x="88" y="266" width="148" height="10" rx="5" fill="#E3E5F5"/>
+
+  <!-- separator line -->
+  <rect x="88" y="294" width="184" height="4" rx="2" fill="#EEF0FB"/>
+
+  <!-- colored info pills -->
+  <rect x="100" y="318" width="70" height="22" rx="11" fill="#FF6B6B"/>
+  <rect x="180" y="318" width="70" height="22" rx="11" fill="#FFE06B"/>
+
+  <rect x="100" y="352" width="70" height="22" rx="11" fill="#4EC8A0"/>
+  <rect x="180" y="352" width="70" height="22" rx="11" fill="#C9D2FF"/>
+
+  <!-- bottom line -->
+  <rect x="100" y="392" width="120" height="10" rx="5" fill="#B3A4FF"/>
+
+  <!-- PEN -->
+  <!-- shadow -->
+  <ellipse cx="364" cy="420" rx="64" ry="18" fill="#E0D6FF"/>
+
+  <!-- pen body -->
+  <rect x="344" y="132" width="40" height="230" rx="16" fill="#FFB347"/>
+  <!-- pen clip -->
+  <path d="M380 156h22c6 0 10 4 10 10v84" stroke="#315E9F" stroke-width="10" stroke-linecap="round"/>
+  <!-- pen top -->
+  <circle cx="364" cy="128" r="24" fill="#FF4F6A"/>
+  <!-- pen tip section -->
+  <rect x="344" y="354" width="40" height="52" rx="10" fill="#334155"/>
+  <!-- pen tip -->
+  <path d="M364 412l-10 18h20l-10-18z" fill="#111827"/>
+
+</svg>

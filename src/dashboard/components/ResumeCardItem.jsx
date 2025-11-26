@@ -5,8 +5,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
@@ -18,7 +16,6 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import GlobalApi from "./../../../service/GlobalApi";
 import { toast } from "sonner";
@@ -42,17 +39,24 @@ function ResumeCardItem({ resume, refreshData}) {
   return (
     <div>
       <Link to={`/dashboard/resume/${resume.documentId}/edit`}>
-        <div
-          className="
-        p-14 bg-gradient-to-t from-blue-200 via-gray-200 to-gray-400   py-24 border items-center flex justify-center 
-        bg-secondary border-dashed rounded-lg cursor-pointer
-         hover:scale-105 duration-200 transition h-[280px] hover:shadow-md"
+        <div className='p-14  bg-gradient-to-b
+          from-pink-100 via-purple-200 to-blue-200
+        h-[280px] 
+          rounded-t-lg border-t-4
+        '
+        style={{
+          borderColor:resume?.themeColor
+        }}
         >
-          <NotebookIcon />
+              <div className='flex 
+        items-center justify-center h-[180px] '>
+                {/* <NotebookIcon/> */}
+                <img src="/cv.png" width={80} height={80} />
+              </div>
         </div>
       </Link>
       <div
-        className="border p-3 flex justify-between text-white rounded-2xl"
+        className="border p-3 flex justify-between text-white rounded-b-lg shadow-lg"
         style={{
           background: resume?.themeColor,
         }}
@@ -94,7 +98,7 @@ function ResumeCardItem({ resume, refreshData}) {
               <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
               <AlertDialogDescription>
                 This action cannot be undone. This will permanently delete your
-                account and remove your data from our servers.
+                "resume" and remove your data from our servers.
               </AlertDialogDescription> 
             </AlertDialogHeader>
             <AlertDialogFooter>
