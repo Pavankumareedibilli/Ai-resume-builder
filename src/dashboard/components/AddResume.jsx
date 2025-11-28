@@ -63,7 +63,7 @@ const AddResume = () => {
           <DialogHeader>
             <DialogTitle>Create New Resume!</DialogTitle>
             <DialogDescription>
-              <p>Enter Name of your Resume</p>
+              Enter Name of your Resume
               <Input
                 className="my-2"
                 placeholder="Ex. FullStack Resume"
